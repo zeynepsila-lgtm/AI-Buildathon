@@ -1,22 +1,28 @@
-# Disleksi Dostu Okuma Asistanı (DyslexiaBuddy)
+# HearMe
 
-## Problem 
-Üniversite öğrencilerinin her gün okumak zorunda kaldığı uzun ve karmaşık dijital akademik metinler, disleksi veya odaklanma problemi (DEHB) yaşayan öğrenciler için görsel ve bilişsel olarak oldukça yorucudur. Mevcut okuma araçları genellikle sadece fontu değiştirir ancak metnin "anlamsal ağırlığını" ve karmaşıklığını çözmekte yetersiz kalır.
+## Problem
+İşitme engelli bireyler, işaret dili bilmeyen kişilerle günlük hayatta (hastane, banka, alışveriş vb.) iletişim kurarken büyük zorluklar yaşamaktadır. Geleneksel yöntemlerle kağıda veya telefona uzun uzun yazı yazarak anlaşmaya çalışmak hem vakit kaybettirmekte hem de doğal sohbetin akıcılığını ve anlık tepkileri yok etmektedir.
 
-## Çözüm 
-Bu web uygulaması, zorlu metinleri öğrencinin bilişsel ihtiyacına göre anında özetleyen, basitleştiren ve okumayı interaktif hale getiren bir yapay zeka asistanıdır. Uygulamaya entegre edilen Google Gemini API (Yapay Zeka); kullanıcının yapıştırdığı uzun metinleri analiz eder, kısa ve anlaşılır bir özete dönüştürür. Ayrıca metnin ana fikrini pekiştirmek için kullanıcıya anında okuma-anlama soruları (quiz) üretir. Tüm bu süreç, göz yormayan pastel arka planlar ve disleksi dostu bir arayüzde gerçekleşir.
+## Çözüm
+HearMe, bu iletişim bariyerini anında ortadan kaldıran akıllı bir köprü uygulamasıdır. Tarayıcı üzerinden karşı tarafın konuşmasını eşzamanlı olarak dinler ve yazıya döker. Asıl sihir burada başlar: **Yapay Zeka (Gemini AI)**, dökülen bu metnin bağlamını saniyeler içinde analiz ederek işitme engelli kullanıcının o an verebileceği 3 kısa, mantıklı ve duruma uygun cevabı butonlar halinde sunar. Kullanıcı uzun uzun yazmak yerine sadece bir butona dokunur ve uygulama bu cevabı karşı tarafa sesli olarak okur. Böylece iletişim hızlı, akıcı ve çift yönlü hale gelir.
 
-## Canlı Demo 
-Yayın Linki: https://mind-bridge-relay.lovable.app/ 
-Demo Video: *[Video hazırlık aşamasında - Yakında eklenecek]*
+## Canlı Demo
+- **Yayın Linki:** https://mind-bridge-relay.lovable.app
+- **Demo Video:** https://loom.com/share/[video-id]
 
-## Kullanılan Teknolojiler 
-- HTML5, CSS3, JavaScript (Frontend ve Arayüz Tasarımı)
-- Google Gemini API (Yapay Zeka Özetleme ve Soru Üretimi)
-- Lovable (Canlı Ortam Yayınlama / Deployment)
+*(Not: Demo video linkini eklerken `[video-id]` kısmını kendi kaydettiğin videonun linkiyle değiştirmeyi unutma!)*
 
-## Nasıl Çalıştırılır? 
-1. Bu projeyi bilgisayarınıza klonlayın veya `.zip` olarak indirin.
-2. Proje klasörünün içindeki `index.html` dosyasını kullandığınız herhangi bir modern web tarayıcısında (Chrome, Safari, Edge vb.) çift tıklayarak açın.
-3. Uygulamanın çalışabilmesi için geçerli bir Google Gemini API anahtarına ihtiyacınız vardır. (Eğer geliştirici modundaysanız, `main.js` veya ilgili script dosyasındaki `API_KEY` değişkenine kendi anahtarınızı eklemeyi unutmayın).
-4. Ekranda açılan büyük metin kutusuna okumakta zorlandığınız akademik bir makaleyi yapıştırın ve butona basarak asistanı test edin!
+## Kullanılan Teknolojiler
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **Yapay Zeka:** Google Gemini API (`gemini-2.5-flash-lite` modeli)
+- **Ses İşleme:** Web Speech API (SpeechRecognition ile sesi yazıya, SpeechSynthesis ile yazıyı sese çevirme)
+- **Yayın/Deploy:** Lovable platformu
+
+## Nasıl Çalıştırılır?
+Projeyi kendi bilgisayarınızda (yerel ortamda) çalıştırmak için şu adımları izleyebilirsiniz:
+
+1. Proje dosyalarını indirin veya bilgisayarınıza klonlayın.
+2. [Google AI Studio](https://aistudio.google.com/app/apikey) adresinden ücretsiz bir Gemini API Anahtarı alın.
+3. Proje klasöründeki `main.js` dosyasını açın ve en üstteki `GEMINI_API_KEY` değişkeninin içine kendi anahtarınızı yapıştırın.
+4. Güvenlik politikaları (mikrofon erişimi) gereği projeyi doğrudan çift tıklayarak değil, bir yerel sunucu ile başlatın (Örn: VS Code "Live Server" eklentisi veya terminalden `npm run dev` komutu ile).
+5. Tarayıcınızda açılan sekmede mikrofon kullanımına izin verin ve "Dinlemeyi Başlat" butonuna tıklayarak uygulamayı deneyimleyin!
