@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HearMe — söylenenleri yazıya dökün, cevabınızı seslendirin."
+    />
+    <title>HearMe</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="app__header">
+        <h1 class="app__title">HearMe</h1>
+        <p class="app__tagline">Konuşma yazıya, cevabınız sese dönüşsün</p>
+      </header>
+
+      <main class="app__main">
+        <section
+          class="panel panel--heard"
+          aria-labelledby="heard-heading"
+        >
+          <div class="panel__head">
+            <h2 id="heard-heading" class="panel__title">Söylenenler</h2>
+            <div class="panel__controls">
+              <span
+                id="stt-status"
+                class="stt-status"
+                role="status"
+                aria-live="polite"
+              ></span>
+              <button
+                type="button"
+                id="btn-toggle-listen"
+                class="btn btn--listen btn--secondary"
+                aria-pressed="false"
+                aria-label="Dinlemeyi başlat — mikrofonla konuşmayı yazıya çevir"
+              >
+                <span class="btn__rec-dot" aria-hidden="true"></span>
+                <svg
+                  class="btn__icon"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+                <span class="btn__label">Dinlemeyi başlat</span>
+              </button>
+            </div>
+          </div>
+          <div
+            id="heard-text"
+            class="heard-text"
+            role="log"
+            aria-live="assertive"
+            aria-relevant="additions text"
+            tabindex="0"
+          ></div>
+        </section>
+
+        <section
+          class="panel panel--reply"
+          aria-labelledby="reply-heading"
+        >
+          <div class="panel__head">
+            <h2 id="reply-heading" class="panel__title">Cevap yaz</h2>
+          </div>
+          <label class="sr-only" for="reply-input">Cevabınızı yazın</label>
+          <textarea
+            id="reply-input"
+            class="reply-input"
+            rows="5"
+            placeholder="Cevabınızı buraya yazın…"
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+          <div class="panel__actions">
+            <button
+              type="button"
+              id="btn-speak"
+              class="btn btn--primary btn--speak"
+              aria-label="Yazdığınız cevabı seslendir"
+            >
+              <svg
+                class="btn__icon"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+              </svg>
+              <span class="btn__label">Seslendir</span>
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="quick-replies"
+          aria-labelledby="quick-heading"
+        >
+          <h2 id="quick-heading" class="quick-replies__title">Hızlı yanıtlar</h2>
+          <div
+            id="quick-replies-strip"
+            class="quick-replies__strip"
+            role="toolbar"
+            aria-label="Hazır cevaplar"
+          ></div>
+        </section>
+      </main>
+
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
